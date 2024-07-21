@@ -1,0 +1,24 @@
+{
+  "name": "bff",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/bff/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "bff:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "bff:build:development"
+        },
+        "production": {
+          "buildTarget": "bff:build:production"
+        }
+      }
+    }
+  }
+}
