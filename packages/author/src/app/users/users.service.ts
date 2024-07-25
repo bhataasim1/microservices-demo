@@ -1,5 +1,6 @@
 import { ConflictException, Injectable } from '@nestjs/common';
 import { IAuthor } from './interface';
+import { RpcException } from '@nestjs/microservices';
 
 const users = [
   {
@@ -23,7 +24,7 @@ export class UsersService {
 
     ///TODO: Having issue here
     if (existingUser) {
-      throw new ConflictException('User already exists');
+      throw new RpcException('User already exists');
     }
 
     const user = {
@@ -35,6 +36,6 @@ export class UsersService {
 
     const { password, ...rest } = user;
 
-    return { user: rest };
+    return { message: 'User Registered Successfully', user: rest };
   }
 }
